@@ -1,0 +1,19 @@
+{
+  "name": "eev",
+  "scripts": {
+    "start": "hz serve --dev",
+    "dev": "webpack --watch",
+    "tunnel": "forever --spinSleepTime 15000 --minUptime 10000 `which lt` --port 80"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "copy-webpack-plugin": "^3.0.1",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "horizon": "^2.0.0"
+  }
+}

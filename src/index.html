@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <title>Exercises in Exploratory Visualization</title>
+
+    <link href="https://cdn.rawgit.com/hakimel/reveal.js/master/css/reveal.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.rawgit.com/hakimel/reveal.js/master/css/theme/white.css" rel="stylesheet" type="text/css">
+    <style>
+      .reveal blockquote p { margin: 20px; }
+      twitterwidget { margin-left: auto; margin-right: auto; }
+      svg { overflow: visible; }
+      path { fill: none; stroke: black; stroke-width: 1; }
+      form * { margin: 0 10px 40px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <script type="text/template">
+            [venue wifi]
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            # Exercises in Exploratory Visualization
+            (Paul Dechov)
+          </script>
+        </section>
+
+        <section data-background-image="https://kmjantz.files.wordpress.com/2014/05/map1.jpg"></section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Exploratory Data Analysis
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              - Discovery
+              - Getting a feel for the data
+              - Finding what's interesting
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## John Tukey
+              - Coined "b<font style="opacity: 0.2">inary dig</font>it"
+              - Published and popularized FFT
+              - 1977 book *Exploratory Data Analysis*
+                - Box and whisker plot
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              <small>
+                > The visualization of statistical data has always existed in one form or another in science and technology. For example, diagrams are the first methods presented in R. A. Fisher's *Statistical Methods for Research Workers*, the 1925 book that brought statistics to many in the scientific and technical community. But with the appearance of John Tukey's pioneering 1977 book, *Exploratory Data Analysis*, visualization became far more concrete and effective. Since 1977, changes in computer systems have changed how we carry out visualization, but not its goals.
+
+                – William Cleveland, "Visualizing Data" (Preface)
+              </small>
+            </script>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ### D3 for Exploratory Visualization
+
+            <small>
+              > D3 doesn’t generate predefined or “canned” visualizations for you. This is on purpose. D3 is intended primarily for **explanatory** visualization work, as opposed to **exploratory** visualizations. **Exploratory** tools help you discover significant, meaningful patterns in data. These are tools like Tableau and ggplot2, which help you quickly generate multiple views on the same data set. That’s an essential step, but different from generating an **explanatory** presentation of the data, a view of the data that highlights what you’ve already discovered. **Explanatory** views are more constrained and limited, but also focused, and designed to communicate only the important points. D3 excels at this latter step, but is not ideal for the former.
+
+              – Scott Murray, "Interactive Data Visualization for the Web"
+            </small>
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## science.js
+            
+            http://jasondavies.github.io/science.js/
+
+            Implementations of non-parametric smoothing functions
+
+            > I originally started this in order to add a reusable statistics module to D3.js, but now it's grown into a whole new project of its own!
+
+            – Jason Davies
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Voyager
+            
+            http://vega.github.io/voyager/
+
+          </script>
+        </section>
+
+        
+
+        <section data-markdown>
+          <script type="text/template">
+            ## D3 examples
+            - https://github.com/d3/d3/wiki/gallery
+            - http://bl.ocks.org/
+            - http://bl.ocksplorer.org/
+          </script>
+        </section>
+        
+
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Multivariate analysis
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Scatter matrix
+              http://bl.ocks.org/mbostock/4063663
+            </script>
+          </section>
+
+          <section data-background-image="https://upload.wikimedia.org/wikipedia/commons/4/41/Iris_versicolor_3.jpg"></section>
+
+          <section data-markdown>
+            <script type="text/template">
+              <small>
+                > The iris data have a long and interesting history. They were originally collected by a botanist [Edgar Anderson] who reported them in 1935. In 1936, R. A. Fisher used the data to illustrate his mathematical method of classification. After Fisher's treatment, the iris measurements became canonical data that have been used by a multitude of people as an example to illustrate other mathematical methods for analyzing multivariate data.
+
+                > The irony is that **visualization of the iris data reveals more about their structure than the previous long list of analyses by numerical statistical methods**. For example, the reliable classification into variety simply by petal size, and the existence of an outlier, are two insights missed by these purely numerical methods of probabilistic inference. One wonders if the iris data would have become a canonical data set had they been visualized in 1936, revealing so thoroughly to all the structure of the data.
+
+                – William Cleveland, "Visualizing Data"
+              </small>
+            </script>
+          </section>
+
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## JS statistics libraries
+            - http://simplestatistics.org/
+            - https://github.com/numbers/numbers.js
+            - https://github.com/jstat/jstat
+            - http://vega.github.io/datalib/
+            - https://github.com/Tom-Alexander/regression-js
+          </script>
+        </section>
+
+
+        <section class="charts"></section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## LOESS
+
+              Local regression
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## t-SNE
+
+              Dimensionality reduction
+            </script>
+          </section>
+        </section>
+        
+
+        <!--<section>
+          <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Machine learning explained in interactive visualizations (part 1) <a href="http://t.co/g75lLydMH9">http://t.co/g75lLydMH9</a> <a href="https://twitter.com/hashtag/d3js?src=hash">#d3js</a> <a href="https://twitter.com/hashtag/machinelearning?src=hash">#machinelearning</a></p>&mdash; r2d3.us (@r2d3us) <a href="https://twitter.com/r2d3us/status/625681063893864449">July 27, 2015</a></blockquote>
+          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>-->
+        
+      </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+    <script src="https://npmcdn.com/reveal.js@3.3.0"></script>
+
+    <script src="https://wzrd.in/bundle/es6-promise@3.2.1"></script>
+    <script>window.Promise = require('es6-promise').Promise</script>
+    <script src="https://wzrd.in/standalone/@horizon%2Fclient@2.0.0"></script>
+    <script>window.Horizon = require('@horizon%2Fclient')</script>
+
+    <script src="https://npmcdn.com/d3@4.2.2"></script>
+    <script src="https://wzrd.in/standalone/science@1.9.3"></script>
+    <script src="https://cdn.rawgit.com/karpathy/tsnejs/master/tsne.js"></script>
+    
+    <script src="main.js"></script>
+  </body>
+  
+</html>
