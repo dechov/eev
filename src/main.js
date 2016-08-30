@@ -20,13 +20,14 @@ window.initializeReveal = ({ multiplex }) => {
     },
     dependencies: [
       { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
-      { src: `${CDN}/plugin/multiplex/${secret ? 'master' : 'client'}.js`, async: true },
 
       { src: `${CDN}/lib/js/classList.js`, condition: () => !document.body.classList },
       { src: `${CDN}/plugin/markdown/marked.js`, condition: () => !!document.querySelector('[data-markdown]') },
       { src: `${CDN}/plugin/markdown/markdown.js`, condition: () => !!document.querySelector('[data-markdown]') },
       { src: `${CDN}/plugin/highlight/highlight.js`, async: true, callback: () => { hljs.initHighlightingOnLoad() } },
-    ],
+    ].concat(!multiplex ? [] : [
+      { src: `${CDN}/plugin/multiplex/${secret ? 'master' : 'client'}.js`, async: true },
+    ]),
   })
 }
 
