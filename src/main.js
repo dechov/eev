@@ -1,6 +1,6 @@
 
 window.initializeReveal = ({ multiplex }) => {
-  const secret = (window.location.search.match(/secret=([^&]+)/) || [])[1]
+  const secret = ((window.location.search || '').match(/secret=([^&]+)/) || [])[1]
   const CDN = 'https://cdn.rawgit.com/hakimel/reveal.js/master'
   Reveal.initialize({
     history: true,
@@ -17,7 +17,6 @@ window.initializeReveal = ({ multiplex }) => {
       secret: secret || null,
       id: '0d7b5d31ddea3237',
       url: 'https://reveal-js-multiplex-fnhnqdtuhq.now.sh',
-      // url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh',
     },
     dependencies: [
       { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
@@ -36,7 +35,7 @@ const randomX = d3.randomUniform(0, 10)
 const randomY = d3.randomNormal(5, 1.5)
 window.state = {
   options: {
-    multiplex: true,
+    multiplex: false,
   },
   charts: [],
   folks: [],
@@ -47,7 +46,7 @@ window.state = {
   }))
 }
 
-initializeReveal(state.options)
+// initializeReveal(state.options)
 
 
 let timeout
@@ -150,7 +149,7 @@ const renderChart = svg => {
       for(var k = 0; k < 500; k++) tsne.step()
 
       ;[xQuestion, yQuestion] = [0, 1]
-      data = tsne.getSolution()
+      data = tsne.getSolution().map((d, i) => ({ ...d, id: state.folks[i].id }))
       x.domain(d3.extent(data, d => d[0]))
       y.domain(d3.extent(data, d => d[1]))
     }
@@ -164,7 +163,6 @@ const renderChart = svg => {
 
   svg.attr('width', width).attr('height', height)
 
-  svg
   const people = svg.selectAll('.person').data(data, d => d.id)
   people.exit().remove()
   people
@@ -182,15 +180,30 @@ const renderChart = svg => {
   
   let axisBottom = svg.select('.axisBottom')
   if (showXAxis) {
-    if (axisBottom.empty()) { axisBottom = svg.append('g').attr('class', 'axisBottom') }
-    axisBottom.attr('transform', `translate(0, ${height})`).call(d3.axisBottom(x))
+    if (axisBottom.empty()) {
+      axisBottom = svg.append('g').attr('class', 'axisBottom')
+        .call(sel => sel.append('g').attr('class', 'axis'))
+        .call(sel => sel.append('text').attr('class', 'axisLabel'))
+    }
+    axisBottom.attr('transform', `translate(0, ${height})`)
+    axisBottom.select('.axis').call(d3.axisBottom(x))
+    axisBottom.select('.axisLabel')
+      .attr('x', width / 2).attr('y', 40).attr('dy', '1em')
+      .attr('text-anchor', 'middle').html(xQuestion)
   }
   else axisBottom.remove()
 
   let axisLeft = svg.select('.axisLeft')
   if (showYAxis) {
-    if (axisLeft.empty()) { axisLeft = svg.append('g').attr('class', 'axisLeft') }
-    axisLeft.call(d3.axisLeft(y))
+    if (axisLeft.empty()) {
+      axisLeft = svg.append('g').attr('class', 'axisLeft')
+        .call(sel => sel.append('g').attr('class', 'axis'))
+        .call(sel => sel.append('text').attr('class', 'axisLabel'))
+      }
+    axisLeft.select('.axis').call(d3.axisLeft(y))
+    axisLeft.select('.axisLabel')
+      .attr('x', -40).attr('y', height / 2)
+      .attr('text-anchor', 'end').html(yQuestion)
   }
   else axisLeft.remove()
   

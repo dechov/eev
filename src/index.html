@@ -18,18 +18,13 @@
       svg { overflow: visible; }
       path { fill: none; stroke: black; stroke-width: 1; }
       form * { margin: 0 10px 40px; }
+      .axisLabel { font-size: 0.5em; text-transform: uppercase; }
     </style>
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-markdown>
-          <script type="text/template">
-            [venue wifi]
-          </script>
-        </section>
-
         <section data-markdown>
           <script type="text/template">
             # Exercises in Exploratory Visualization
@@ -76,53 +71,52 @@
           </section>
         </section>
 
-        <section data-markdown>
-          <script type="text/template">
-            ### D3 for Exploratory Visualization
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ### D3 for Exploratory Visualization
 
-            <small>
-              > D3 doesn’t generate predefined or “canned” visualizations for you. This is on purpose. D3 is intended primarily for **explanatory** visualization work, as opposed to **exploratory** visualizations. **Exploratory** tools help you discover significant, meaningful patterns in data. These are tools like Tableau and ggplot2, which help you quickly generate multiple views on the same data set. That’s an essential step, but different from generating an **explanatory** presentation of the data, a view of the data that highlights what you’ve already discovered. **Explanatory** views are more constrained and limited, but also focused, and designed to communicate only the important points. D3 excels at this latter step, but is not ideal for the former.
+              <small>
+                > D3 doesn’t generate predefined or “canned” visualizations for you. This is on purpose. D3 is intended primarily for **explanatory** visualization work, as opposed to **exploratory** visualizations. **Exploratory** tools help you discover significant, meaningful patterns in data. These are tools like Tableau and ggplot2, which help you quickly generate multiple views on the same data set. That’s an essential step, but different from generating an **explanatory** presentation of the data, a view of the data that highlights what you’ve already discovered. **Explanatory** views are more constrained and limited, but also focused, and designed to communicate only the important points. D3 excels at this latter step, but is not ideal for the former.
 
-              – Scott Murray, "Interactive Data Visualization for the Web"
-            </small>
-          </script>
+                – Scott Murray, "Interactive Data Visualization for the Web"
+              </small>
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## science.js
+              
+              http://jasondavies.github.io/science.js/
+
+              Implementations of non-parametric smoothing functions
+
+              > I originally started this in order to add a reusable statistics module to D3.js, but now it's grown into a whole new project of its own!
+
+              – Jason Davies
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Voyager
+              
+              http://vega.github.io/voyager/
+
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## D3 examples
+              - https://github.com/d3/d3/wiki/gallery
+              - http://bl.ocks.org/
+              - http://bl.ocksplorer.org/
+            </script>
+          </section>
         </section>
-
-        <section data-markdown>
-          <script type="text/template">
-            ## science.js
-            
-            http://jasondavies.github.io/science.js/
-
-            Implementations of non-parametric smoothing functions
-
-            > I originally started this in order to add a reusable statistics module to D3.js, but now it's grown into a whole new project of its own!
-
-            – Jason Davies
-          </script>
-        </section>
-
-        <section data-markdown>
-          <script type="text/template">
-            ## Voyager
-            
-            http://vega.github.io/voyager/
-
-          </script>
-        </section>
-
         
-
-        <section data-markdown>
-          <script type="text/template">
-            ## D3 examples
-            - https://github.com/d3/d3/wiki/gallery
-            - http://bl.ocks.org/
-            - http://bl.ocksplorer.org/
-          </script>
-        </section>
-        
-
 
         <section>
           <section data-markdown>
@@ -198,8 +192,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
     <script src="https://npmcdn.com/reveal.js@3.3.0"></script>
 
-    <script src="https://wzrd.in/bundle/es6-promise@3.2.1"></script>
-    <script>window.Promise = require('es6-promise').Promise</script>
     <script src="https://wzrd.in/standalone/@horizon%2Fclient@2.0.0"></script>
     <script>window.Horizon = require('@horizon%2Fclient')</script>
 
