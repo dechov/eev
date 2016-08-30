@@ -40,11 +40,11 @@ window.state = {
   },
   charts: [],
   folks: [],
-  folks: d3.range(0, 150).map(i => ({
-    id: i,
-    hungry: randomX(),
-    feeling: randomY()
-  }))
+  // folks: d3.range(0, 150).map(i => ({
+  //   id: i,
+  //   hungry: randomX(),
+  //   feeling: randomY()
+  // }))
 }
 
 // initializeReveal(state.options)
@@ -72,8 +72,9 @@ const connect = () => {
       const usersCollection = horizon('users')
       state = { ...state, id: user.id, me: user, usersCollection }
       usersCollection.watch().subscribe(folks => {
-        const [me] = folks.filter(d => d.id === state.id)
-        state = { ...state, folks, me }
+        const realFolks = folks.filter(d => d.id !== 'admin')
+        const [me] = realFolks.filter(d => d.id === state.id)
+        state = { ...state, folks: realFolks, me }
         updateView()
       })
     })
