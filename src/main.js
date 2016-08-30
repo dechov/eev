@@ -51,7 +51,7 @@ window.state = {
 
 let timeout
 const connect = () => {
-  const horizon = Horizon({ authType: 'anonymous', keepalive: 25 })
+  const horizon = Horizon({ authType: 'anonymous', keepalive: 25, host: window.location.host + window.location.pathname.slice(0,-1) })
   window.horizon = horizon
   horizon.onReady(() => {
     console.log('Connected')
