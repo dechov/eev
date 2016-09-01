@@ -138,7 +138,7 @@ const renderChart = svg => {
     showXAxis = false
     showYAxis = false
     data = []
-    if (state.folks.length) {
+    if (state.folks.length > 1) {
       const tabular = state.folks.map(person =>
         state.charts.filter(d => d.question).map(question => person[d.id] || 5)
       )
